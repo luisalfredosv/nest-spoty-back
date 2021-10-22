@@ -1,0 +1,42 @@
+@hostname = localhost
+@port = 3000
+@protocol = http
+@host = {{protocol}}://{{hostname}}:{{port}}
+
+# Made in nestjs
+# Made by https://github.com/luisalfredosv
+# To make use of this request file it is necessary to install REST CLIENT in VsCode
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+###
+# Get all tracks registrered
+GET {{host}}/tracks/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer hashToken
+###
+# Get tracks by ID
+GET {{host}}/tracks/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer hashToken
+###
+# Create new user
+POST {{host}}/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Jhon Doe",
+    "email": "jdoe@mail.com",
+    "password": "qwerty123"
+}
+
+###
+# Login user
+POST {{host}}/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "jdoe@mail.com",
+    "password": "qwerty123"
+}
+
+###
